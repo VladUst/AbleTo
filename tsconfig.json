@@ -13,7 +13,12 @@
     // позволяет импортировать модулями а не common.js
     "esModuleInterop": true,
     //для поддержки дефолтных или именованных импортов
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    //все импорты и экспорты будут идити из src
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
