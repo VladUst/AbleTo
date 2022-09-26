@@ -10,7 +10,7 @@ const App = () => {
   const { theme } = useTheme()
   return (
       <div className={classNames('app', {}, [theme])}>
-          <Suspense fallback="загрузка перевода...">
+          <Suspense fallback="translation loading...">
               <Navbar/>
               <div className="content-page">
                   <Sidebar/>
