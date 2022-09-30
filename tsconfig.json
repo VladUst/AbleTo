@@ -24,5 +24,13 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  // для каких файлов явно работает tsconfig (по умолчанию без include все)
+  "include": [
+    "./config/jest/*.ts",
+    "./config/jest/*.tsx",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./*.ts"
+  ]
 }
