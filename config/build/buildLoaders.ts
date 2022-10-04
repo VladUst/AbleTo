@@ -13,7 +13,8 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
   }
 
   const svgLoader = {
-    test: /\.svg$/,
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack']
   }
 
