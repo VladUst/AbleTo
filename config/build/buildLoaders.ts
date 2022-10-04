@@ -1,7 +1,7 @@
 import { RuleSetRule } from 'webpack'
 import { BuildOptions } from './types/config'
 import { buildCssLoader } from './loaders/buildCssLoader'
-
+//
 export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
