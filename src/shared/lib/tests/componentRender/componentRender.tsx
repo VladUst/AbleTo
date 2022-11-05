@@ -1,8 +1,8 @@
-import i18nForTest from 'shared/config/i18n/i18nForTest'
-import { ReactNode } from 'react'
-import { render } from '@testing-library/react'
-import { I18nextProvider } from 'react-i18next'
-import { MemoryRouter } from 'react-router-dom'
+import i18nForTest from 'shared/config/i18n/i18nForTest';
+import { ReactNode } from 'react';
+import { render } from '@testing-library/react';
+import { I18nextProvider } from 'react-i18next';
+import { MemoryRouter } from 'react-router-dom';
 
 export interface componentRenderOptions {
   route?: string
@@ -11,7 +11,7 @@ export interface componentRenderOptions {
 export function componentRender (component: ReactNode, options: componentRenderOptions = {}) {
   const {
     route = '/'
-  } = options
+  } = options;
 
   return render(
       <MemoryRouter initialEntries={[route]}>
@@ -20,5 +20,5 @@ export function componentRender (component: ReactNode, options: componentRenderO
           </I18nextProvider>
           ,
       </MemoryRouter>
-  )
+  );
 }

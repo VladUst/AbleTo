@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 
 export default {
   clearMocks: true,
@@ -24,4 +24,4 @@ export default {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
   }
-}
+};

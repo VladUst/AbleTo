@@ -1,21 +1,17 @@
-import React, { Suspense } from 'react'
-import './styles/index.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useTheme } from 'app/providers/ThemeProvider'
-import { AppRouter } from 'app/providers/router'
-import { Navbar } from 'widgets/Navbar'
-import { Sidebar } from 'widgets/Sidebar'
+import React, { Suspense, useEffect } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Theme } from 'app/providers/ThemeProvider';
+import { AppRouter } from 'app/providers/router';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+import { LOCAL_STORAGE_THEME_KEY } from 'app/providers/ThemeProvider/lib/ThemeContext';
 
 const App = () => {
-  const { theme } = useTheme()
-
-  /* useEffect(() => {
-    if (Math.random() < 0.5) {
-      throw new Error()
-    }
-  }, []) */
+  useEffect(() => {
+    document.body.className = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+  }, []);
   return (
-      <div className={classNames('app', {}, [theme])}>
+      <div className={classNames('app', {}, [])}>
           <Suspense fallback="translation loading...">
               <Navbar/>
               <div className="content-page">
@@ -24,7 +20,7 @@ const App = () => {
               </div>
           </Suspense>
       </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

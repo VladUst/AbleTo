@@ -1,6 +1,6 @@
-import { RuleSetRule } from 'webpack'
-import { BuildOptions } from './types/config'
-import { buildCssLoader } from './loaders/buildCssLoader'
+import { RuleSetRule } from 'webpack';
+import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoader';
 //
 export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
   const fileLoader = {
@@ -10,13 +10,13 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
         loader: 'file-loader'
       }
     ]
-  }
+  };
 
   const svgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack']
-  }
+  };
 
   const babelLoader = {
     test: /\.(js|jsx|tsx)$/,
@@ -27,15 +27,15 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
         presets: ['@babel/preset-env']
       }
     }
-  }
+  };
 
-  const cssLoader = buildCssLoader(isDev)
+  const cssLoader = buildCssLoader(isDev);
   // без ts понадобился бы транспилятор babel
   const typescriptLoader = {
     test: /\.tsx?$/, // переводить tsx в ts
     use: 'ts-loader',
     exclude: /node_modules/
-  }
+  };
 
   return [
     fileLoader,
@@ -43,5 +43,5 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
     babelLoader,
     typescriptLoader,
     cssLoader
-  ]
+  ];
 }
