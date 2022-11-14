@@ -20,7 +20,7 @@ module.exports = {
   ],
   rules: {
     'react/jsx-indent': [2, 4],
-    '@typescript-eslint/semi': [2, 'always'],
+    '@typescript-eslint/semi': [1, 'always'],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -29,7 +29,8 @@ module.exports = {
     'max-len': ['error', { code: 120, ignoreComments: true }],
     '@typescript-eslint/consistent-type-assertions': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'error' // Checks effect dependencies
+    'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
+    'no-param-reassign': 'off'
   },
   globals: {
     _IS_DEV_: true
@@ -39,8 +40,8 @@ module.exports = {
       files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       rules: {
         'i18next/no-literal-string': 'off',
-        'max-len': 'off',
+        'max-len': 'off'
       }
     }
   ]
-};
+}

@@ -1,6 +1,9 @@
 import path from 'path';
 
 export default {
+  globals: {
+    _IS_DEV_: true
+  },
   clearMocks: true,
   coveragePathIgnorePatterns: [
     '\\\\node_modules\\\\'
