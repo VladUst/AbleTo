@@ -1,7 +1,8 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
+
 export default ({ config }: { config: webpack.Configuration }) => {
   // чтобы storybook понимал абсолютные импорты в компонентах
   const paths: BuildPaths = {
@@ -28,5 +29,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
   });
   // чтобы понимал css модули
   config.module.rules.push(buildCssLoader(true));
+  config.plugins.push(new DefinePlugin({
+    _IS_DEV_: true
+  }));
   return config;
 };

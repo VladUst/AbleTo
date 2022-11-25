@@ -26,7 +26,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'fallback'] }],
-    'max-len': ['error', { code: 120, ignoreComments: true }],
+    'max-len': ['error', { code: 130, ignoreComments: true }],
     '@typescript-eslint/consistent-type-assertions': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
@@ -37,10 +37,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}', '**/json-server/*.js'],
       rules: {
         'i18next/no-literal-string': 'off',
-        'max-len': 'off'
+        'max-len': 'off',
+        semi: 'off'
       }
     }
   ]
