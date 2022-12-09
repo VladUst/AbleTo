@@ -3,7 +3,7 @@ import cls from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
@@ -13,18 +13,20 @@ import { getLoginPassword } from '../../model/selector/getLoginPassword/getLogin
 import { getLoginLoading } from '../../model/selector/getLoginLoading/getLoginLoading';
 import { getLoginError } from '../../model/selector/getLoginError/getLoginError';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 export interface LoginFormProps {
   className?: string
+  onSuccessLogin: () => void
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccessLogin }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginLoading);
@@ -36,9 +38,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const onChangePassword = useCallback((value: string) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccessLogin();
+    }
+  }, [onSuccessLogin, dispatch, username, password]);
   return (
       <DynamicModuleLoader
           removeAfterUnmount
