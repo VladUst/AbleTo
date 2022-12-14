@@ -33,12 +33,15 @@ const LoginForm = memo(({ className, onSuccessLogin }: LoginFormProps) => {
   const error = useSelector(getLoginError);
 
   const onChangeUserName = useCallback((value: string) => {
+    // @ts-expect-error
     dispatch(loginActions.setUsername(value));
   }, [dispatch]);
   const onChangePassword = useCallback((value: string) => {
+    // @ts-expect-error
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
   const onLoginClick = useCallback(async () => {
+    // @ts-expect-error
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccessLogin();

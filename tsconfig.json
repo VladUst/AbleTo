@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "outDir": "./dist/",
     //нельзя использовать переменные без явного указания типа
     "noImplicitAny": true,
