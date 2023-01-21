@@ -21,3 +21,4 @@ type DeepPartial<T> = T extends object ? {
 
 declare const _IS_DEV_: boolean;
 declare const __API__: string;
+declare const __PROJECT__: 'storybook' | 'frontend' | 'jest';

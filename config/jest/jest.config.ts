@@ -3,7 +3,8 @@ import path from 'path';
 export default {
   globals: {
     _IS_DEV_: true,
-    __API__: ''
+    __API__: '',
+    __PROJECT__: 'jest'
   },
   clearMocks: true,
   coveragePathIgnorePatterns: [

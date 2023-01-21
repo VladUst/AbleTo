@@ -39,7 +39,9 @@ module.exports = {
     'react/display-name': 'off',
   },
   globals: {
-    _IS_DEV_: true
+    _IS_DEV_: true,
+    __API__: true,
+    __PROJECT__: true
   },
   overrides: [
     {
