@@ -16,6 +16,11 @@ export enum ButtonSize {
   L = 'size_l',
   XL = 'size_xl',
 }
+export enum ButtonRadius {
+  RIGHT = 'radius_right',
+  LEFT = 'radius_left',
+  NONE = 'radius_none'
+}
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
@@ -23,6 +28,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   size?: ButtonSize
   children?: ReactNode
+  radius?: ButtonRadius
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -31,6 +37,7 @@ export const Button = memo((props: ButtonProps) => {
     children,
     theme = ButtonTheme.OUTLINE,
     square,
+    radius = ButtonRadius.NONE,
     size = ButtonSize.M,
     ...otherProps
   } = props;
@@ -43,7 +50,7 @@ export const Button = memo((props: ButtonProps) => {
   };
 
   return (
-      <button className={classNames(cls.Button, mods, [className, cls[theme]])}
+      <button className={classNames(cls.Button, mods, [className, cls[theme], cls[radius]])}
                 {...otherProps}
         >
           {children}

@@ -44,6 +44,11 @@
   padding: 0;
 }
 
+.radius_right {
+  border-radius: 0 20px 20px 0;
+  box-shadow: 2px 0 3px var(--inverted-bg-color);
+}
+
 .square.size_m {
   width: var(--font-line-m);
   height: var(--font-line-m);
