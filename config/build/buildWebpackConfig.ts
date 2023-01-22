@@ -13,7 +13,8 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
     output: {
       filename: '[name].[contenthash].js', // убрать кэширование билда
       path: paths.build,
-      clean: true
+      clean: true,
+      publicPath: '/'
     },
     plugins: buildPlugins(options),
     module: {
