@@ -71,6 +71,7 @@ const LoginForm = memo(({ className, onSuccessLogin }: LoginFormProps) => {
               />
               <Button className={cls.loginBtn}
                       theme={ButtonTheme.OUTLINE}
+                      /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
                       onClick={onLoginClick}
                       disabled={isLoading}
               >
