@@ -4,10 +4,12 @@ import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { articleDetailsReducer } from 'entities/Article/model/slices/articleDetailsSlice';
 // для проброса тем
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  articleDetails: articleDetailsReducer
 };
 
 export const StoreDecorator = (

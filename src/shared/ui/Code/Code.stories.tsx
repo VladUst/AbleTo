@@ -1,16 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ArticlesPage from './ArticlesPage';
+import { Code } from './Code';
 
 export default {
-  title: 'pages/ArticlesPage',
-  component: ArticlesPage,
+  title: 'shared/Code',
+  component: Code,
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof ArticlesPage>;
+} as ComponentMeta<typeof Code>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

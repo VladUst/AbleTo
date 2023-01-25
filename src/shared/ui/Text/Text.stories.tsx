@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -29,6 +29,13 @@ Error.args = {
 export const Title = Template.bind({});
 Title.args = {
   title: 'Title'
+};
+
+export const TextL = Template.bind({});
+TextL.args = {
+  title: 'Title',
+  text: 'Text',
+  size: TextSize.L
 };
 
 export const OnlyText = Template.bind({});
