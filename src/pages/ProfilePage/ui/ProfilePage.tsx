@@ -7,13 +7,15 @@ import {
   ProfileCard,
   profileReducer, ValidateProfileError
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -27,6 +29,7 @@ const ProfilePage = () => {
   const isError = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{ id: string }>();
   const validateErrorsTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
     [ValidateProfileError.NO_DATA]: t('Нет данных'),
@@ -34,11 +37,11 @@ const ProfilePage = () => {
     [ValidateProfileError.INCORRECT_COUNTRY]: t('Не указана страна'),
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст')
   };
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ name: value ?? '' }));

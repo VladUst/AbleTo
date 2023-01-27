@@ -39,7 +39,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -120,6 +122,18 @@
       "text": "not bad",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "new comment",
+      "id": "C5Zxg7R"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fsdgsd",
+      "id": "J2SbjuJ"
     }
   ],
   "users": [
@@ -138,14 +152,28 @@
       "avatar": "https://yt3.ggpht.com/ytc/AAUvwnhCyO4UBG7bp2Kky60IiW_UiD3yfBGfd-Nm40qY=s900-c-k-c0x00ffffff-no-rj"
     }
   ],
-  "profile": {
-    "name": "Vladislav",
-    "lastname": "Ustyugov",
-    "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Novosibirsk",
-    "username": "admin",
-    "avatar": "https://avatars.mds.yandex.net/i?id=6549392d40b6ddf42e17ffcc7976508521ca6bcd-5324799-images-thumbs&n=13"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "name": "Vladislav",
+      "lastname": "Ustyugov",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Novosibirsk",
+      "username": "admin",
+      "avatar": "https://avatars.mds.yandex.net/i?id=6549392d40b6ddf42e17ffcc7976508521ca6bcd-5324799-images-thumbs&n=13"
+    },
+    {
+      "id": "2",
+      "name": "Alfred",
+      "lastname": "Torn",
+      "age": 30,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "New York",
+      "username": "user",
+      "avatar": "https://yt3.ggpht.com/ytc/AAUvwnhCyO4UBG7bp2Kky60IiW_UiD3yfBGfd-Nm40qY=s900-c-k-c0x00ffffff-no-rj"
+    }
+  ]
 }
