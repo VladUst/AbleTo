@@ -4,19 +4,16 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
 import { CombinedState } from 'redux';
-import { NavigateOptions, To } from 'react-router-dom';
 
 export function createReduxStore (initialSate?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void) {
+  asyncReducers?: ReducersMapObject<StateSchema>) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer
   };
   const reducerManager = createReducerManager(rootReducers);
   const extraArg: ThunkExtraArg = {
-    api: $api,
-    navigate
+    api: $api
   };
 
   const store = configureStore<StateSchema>({

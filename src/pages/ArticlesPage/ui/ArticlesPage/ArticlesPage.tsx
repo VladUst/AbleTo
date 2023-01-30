@@ -6,13 +6,13 @@ import { articlesPageActions, articlesPageReducer, getArticles } from '../../mod
 import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
   getArticlesPageIsLoading,
   getArticlesPageView
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
 interface ArticlesPageProps {
   className?: string
@@ -36,13 +36,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesList({
-      page: 1
-    }));
+    dispatch(initArticlesPage());
   });
   return (
-      <DynamicModuleLoader reducers={reducers}>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
           <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
               <ArticleViewSelector view={view} onViewClick={onChangeView}/>
               <ArticleList
