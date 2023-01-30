@@ -10,9 +10,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticlesDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { UISchema } from 'features/UI';
 
 export interface StateSchema {
   user: UserSchema
+  ui: UISchema
   // Асинхронные редюсеры
   loginForm?: LoginSchema
   profile?: ProfileSchema
