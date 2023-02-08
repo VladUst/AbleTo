@@ -5,6 +5,8 @@ import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
   title: 'entities/ArticleDetails',
@@ -71,6 +73,14 @@ Loading.decorators = [StoreDecorator({
     isLoading: true
   }
 })];
+
+export const LoadingDark = Template.bind({});
+LoadingDark.args = {};
+LoadingDark.decorators = [StoreDecorator({
+  articleDetails: {
+    isLoading: true
+  }
+}), ThemeDecorator(Theme.DARK)];
 
 export const Error = Template.bind({});
 Error.args = {};

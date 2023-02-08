@@ -3,6 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ArticleList } from './ArticleList';
 import { Article, ArticleView } from '../../model/types/article';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
   title: 'entities/Article/ArticleList',
@@ -100,6 +102,14 @@ LoadingBig.args = {
   isLoading: true,
   view: ArticleView.BIG
 };
+
+export const LoadingBigDark = Template.bind({});
+LoadingBigDark.args = {
+  articles: [],
+  isLoading: true,
+  view: ArticleView.BIG
+};
+LoadingBigDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const LoadingSmall = Template.bind({});
 LoadingSmall.args = {
