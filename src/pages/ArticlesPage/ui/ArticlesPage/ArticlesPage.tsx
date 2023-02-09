@@ -41,6 +41,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
               <ArticlesPageFilters/>
               <ArticleList
+                  className={cls.articles}
                   isLoading={isLoading}
                   view={view}
                   articles={articles}

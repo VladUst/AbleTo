@@ -1,20 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from '../../types/article';
+import { Article } from 'entities/Article';
 
-export const fetchArticleById = createAsyncThunk<
-Article,
-string,
+export const fetchArticleRecommendations = createAsyncThunk<
+Article[],
+void,
 ThunkConfig<string>
 >(
-  'articleDetails/fetchArticleById',
-  async (articleId, thunkApi) => {
+  'articleDetailsPage/fetchArticleRecommendations',
+  async (props, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
 
     try {
-      const response = await extra.api.get<Article>(`/articles/${articleId}`, {
+      const response = await extra.api.get<Article[]>('/articles', {
         params: {
-          _expand: 'user'
+          _expand: 'user',
+          _limit: 9
         }
       });
 
@@ -24,7 +25,6 @@ ThunkConfig<string>
 
       return response.data;
     } catch (e) {
-      console.log(e);
       return rejectWithValue('error');
     }
   }

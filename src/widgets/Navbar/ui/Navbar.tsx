@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface NavbarProps {
   className?: string
@@ -30,20 +33,27 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
-            <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={onLogOut}>
-                {t('Выйти')}
-            </Button>
-        </div>
+        <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('CyberZone')} />
+            <div className={cls.links}>
+                <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.articles_create} className={cls.link}>
+                    {t('Создать статью')}
+                </AppLink>
+                <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogOut} className={cls.link}>
+                    {t('Выйти')}
+                </Button>
+            </div>
+
+        </header>
     );
   }
 
   return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
           <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={onShowModal}>
               {t('Войти')}
           </Button>
           <LoginModal isOpen={isAuthOpen} onClose={onCloseModal}/>
-      </div>
+      </header>
   );
 });
