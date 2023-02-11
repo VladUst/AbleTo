@@ -10,7 +10,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import {
   getArticlesPageIsLoading,
   getArticlesPageView
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+} from '../../model/selectors/articlesPageSelectors';
 import { Page } from 'widgets/Page/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';

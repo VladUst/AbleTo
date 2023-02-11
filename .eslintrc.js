@@ -16,7 +16,8 @@ module.exports = {
   plugins: [
     'react',
     'i18next',
-    'react-hooks'
+    'react-hooks',
+    'fsd-refactor'
   ],
   rules: {
     'react/jsx-indent': [2, 4],
@@ -36,7 +37,8 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     'no-param-reassign': 'off',
-    'react/display-name': 'off'
+    'react/display-name': 'off',
+    'fsd-refactor/path-checker': 'error'
   },
   globals: {
     _IS_DEV_: true,
