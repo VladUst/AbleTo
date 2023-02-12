@@ -4,21 +4,9 @@
   box-shadow: 0 2px 10px var(--primary-color);
 }
 
-.input {
-  margin-top: 10px;
-}
-
 .loading,
 .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 300px;
-}
-
-.avatarWrapper {
-  display: flex;
-  justify-content: center;
 }
 
 .editing {

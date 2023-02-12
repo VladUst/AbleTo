@@ -66,7 +66,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                   isLoading={recommendationIsLoading}/>
               <Text className={cls.commentTitle} title={t('Комментарии')}/>
               <AddCommentForm onSendComment={onSendComment} />
-              <CommentList isLoading={commentsIsLoading} comments={comments}/>
+              <CommentList className={cls.commentList} isLoading={commentsIsLoading} comments={comments}/>
           </Page>
       </DynamicModuleLoader>
   );
