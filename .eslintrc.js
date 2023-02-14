@@ -31,7 +31,7 @@ module.exports = {
     '@typescript-eslint/no-invalid-void-type': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unnecessary-type-assertion': 'off',
-    'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'fallback', 'target', 'role'] }],
+    'i18next/no-literal-string': ['warn', { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'fallback', 'target', 'role', 'as'] }],
     'max-len': ['error', { code: 130, ignoreComments: true }],
     '@typescript-eslint/consistent-type-assertions': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
