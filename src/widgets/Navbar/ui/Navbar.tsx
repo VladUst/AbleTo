@@ -7,8 +7,9 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface NavbarProps {
   className?: string
@@ -36,12 +37,27 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <header className={classNames(cls.Navbar, {}, [className])}>
             <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('CyberZone')} />
             <div className={cls.links}>
-                <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.articles_create} className={cls.link}>
+                {/* <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.articles_create} className={cls.link}>
                     {t('Создать статью')}
-                </AppLink>
-                <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogOut} className={cls.link}>
+                </AppLink> */}
+                <Dropdown
+                    direction={'bottom left'}
+                    className={cls.dropdown}
+                    items={[
+                      {
+                        content: t('Профиль'),
+                        href: RoutePath.profile + authData.id
+                      },
+                      {
+                        content: t('Выйти'),
+                        onClick: onLogOut
+                      }
+                    ]}
+                    trigger={<Avatar size={30} src={authData.avatar}/>}
+                />
+                {/* <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogOut} className={cls.link}>
                     {t('Выйти')}
-                </Button>
+                </Button> */}
             </div>
 
         </header>
