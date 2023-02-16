@@ -5,13 +5,15 @@ import { createReducerManager } from 'app/providers/StoreProvider/config/reducer
 import { $api } from 'shared/api/api';
 import { CombinedState } from 'redux';
 import { uiReducer } from 'features/UI';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export function createReduxStore (initialSate?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
-    ui: uiReducer
+    ui: uiReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   };
   const reducerManager = createReducerManager(rootReducers);
   const extraArg: ThunkExtraArg = {
