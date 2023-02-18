@@ -484,14 +484,14 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://avatars.mds.yandex.net/i?id=6549392d40b6ddf42e17ffcc7976508521ca6bcd-5324799-images-thumbs&n=13"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://yt3.ggpht.com/ytc/AAUvwnhCyO4UBG7bp2Kky60IiW_UiD3yfBGfd-Nm40qY=s900-c-k-c0x00ffffff-no-rj"
     }
   ],

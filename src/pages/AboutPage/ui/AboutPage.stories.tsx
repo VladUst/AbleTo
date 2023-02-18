@@ -6,7 +6,7 @@ import AboutPage from './AboutPage';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 export default {
-  title: 'pages/AboutPage',
+  title: 'pages/ForbiddenPage',
   component: AboutPage,
   argTypes: {
     backgroundColor: { control: 'color' }

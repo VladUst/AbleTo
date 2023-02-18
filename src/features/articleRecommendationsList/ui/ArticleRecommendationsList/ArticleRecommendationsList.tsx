@@ -17,7 +17,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
   const { t } = useTranslation();
   const { isLoading, data: articles, error } = useArticleRecommendationsList(9);
 
-  if (isLoading || error) {
+  if (!articles || isLoading || error) {
     return null;
   }
 
